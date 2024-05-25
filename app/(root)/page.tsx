@@ -9,8 +9,12 @@ export default async function Page({searchParams: {id, page}}: SearchParamProps)
   const currentPage = Number(page as string) || 1;
   const loggedIn = await getLoggedInUser();
   const accounts = await getAccounts({ 
-    userId: loggedIn.$id 
+    userId: loggedIn?.$id 
   })
+
+
+  console.log(loggedIn);
+  console.log(loggedIn?.$id)
 
   if(!accounts) return;
   
